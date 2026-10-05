@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday, Dad!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Press+Start+2P&family=Fraunces:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root{
+    --slate:#0f172a; --emerald:#065f46; --emerald-lt:#10b981; --gold:#fbbf24; --gold-dk:#b45309; --ink:#e2e8f0; --mute:#94a3b8;
+    box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  html{scroll-padding-top:env(safe-area-inset-top,0px)}
+  body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 120%,var(--emerald) 0%,var(--slate) 60%);background-color:var(--slate);color:var(--ink);font-family:'Outfit',system-ui,sans-serif}
+  .px{font-family:'Press Start 2P',monospace}
+  .serif{font-family:'Fraunces',Georgia,serif}
+  .gold{color:var(--gold)}
+  .page{display:none;opacity:0;transition:opacity .45s ease}
+  .page.active{display:block}
+  .page.show{opacity:1}
+  .btn{font-family:'Press Start 2P',monospace;font-size:.7rem;line-height:1.5;padding:.9rem 1.1rem;border:3px solid var(--gold);color:var(--slate);background:var(--gold);box-shadow:4px 4px 0 var(--gold-dk);cursor:pointer;transition:transform .08s,box-shadow .08s}
+  .btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--gold-dk)}
+  .btn:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--gold-dk)}
+  .btn.ghost{background:transparent;color:var(--gold)}
+  .btn:focus-visible,.tab:focus-visible{outline:3px solid #fff;outline-offset:3px}
+  .tab{width:14px;height:14px;border:2px solid var(--gold);background:transparent;cursor:pointer;padding:0}
+  .tab[aria-selected="true"]{background:var(--gold)}
+  .board{background:#020617;border:4px solid var(--gold);box-shadow:0 0 0 4px var(--slate),0 0 0 7px var(--emerald-lt),0 18px 40px rgba(0,0,0,.5)}
+  .cell{background:#0b1220;border:2px solid #1e293b;padding:1.1rem .8rem;text-align:center}
+  .num{font-family:'Press Start 2P',monospace;color:var(--gold);text-shadow:0 0 14px rgba(251,191,36,.55);font-size:clamp(1.05rem,4.6vw,1.9rem);white-space:nowrap}
+  .lbl{font-size:.9rem;color:var(--mute);margin-top:.7rem}
+  .thumb{overflow:hidden}
+  .badge{position:absolute;top:10px;left:10px;font-size:.5rem;line-height:1.4;background:#020617;color:var(--gold);border:2px solid var(--gold);padding:.4rem .5rem}
+  .dur{position:absolute;bottom:10px;right:10px;font-size:.5rem;background:#020617;color:#fff;padding:.35rem .45rem}
+  .playdisc{width:64px;height:64px;display:flex;align-items:center;justify-content:center;background:var(--gold);color:var(--slate);border:3px solid var(--slate);box-shadow:4px 4px 0 var(--gold-dk);font-size:1.6rem;padding-left:4px}
+  a.btn{text-decoration:none}
+  .pulse{animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .arc{stroke-dasharray:6 7;animation:dash 2.5s linear infinite}
+  @keyframes dash{to{stroke-dashoffset:-26}}
+  .blink{animation:blink 1.1s steps(2,start) infinite}
+  @keyframes blink{to{visibility:hidden}}
+  .frame{position:relative;aspect-ratio:16/9;width:100%;background:#000}
+  .frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  @media (prefers-reduced-motion:reduce){.page{transition:none}.pulse,.arc,.blink{animation:none}.btn{transition:none}}
+</style>
+</head>
+<body>
+<main class="max-w-3xl mx-auto px-5 py-8 sm:py-12">
+
+  <!-- progress tabs -->
+  <div class="flex items-center justify-between mb-8">
+    <span class="px text-[.6rem] gold">BDAY.EXE</span>
+    <div class="flex gap-3" role="tablist" aria-label="Pages">
+      <button class="tab" role="tab" aria-label="Page 1: Happy Birthday" data-go="0"></button>
+      <button class="tab" role="tab" aria-label="Page 2: Season recap" data-go="1"></button>
+      <button class="tab" role="tab" aria-label="Page 3: Highlight reel" data-go="2"></button>
+    </div>
+  </div>
+
+  <!-- PAGE 1 -->
+  <section class="page" id="p0">
+    <svg viewBox="0 0 440 200" class="w-full max-w-lg mx-auto border-2 border-amber-400/40 rounded bg-slate-950/80 p-2" role="img" aria-label="2D Map connecting Bujumbura, Burundi on the left to Jamnagar, Gujarat on the right">
+      <defs>
+        <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+          <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#fbbf24" stroke-opacity="0.08" stroke-width="1"/>
+        </pattern>
+      </defs>
+
+      <!-- Background Grid & Frame -->
+      <rect width="440" height="200" fill="url(#grid)" />
+      <rect x="5" y="5" width="430" height="190" fill="none" stroke="#fbbf24" stroke-opacity="0.25" stroke-width="1"/>
+
+      <!-- Stylized Continent Silhouettes (2D Planar Projection) -->
+      <!-- Africa (Left) -->
+      <path d="M 50 45 C 80 40, 140 45, 145 75 C 150 95, 125 120, 115 150 C 105 175, 80 170, 75 140 C 65 110, 45 80, 50 45 Z" fill="#10b981" fill-opacity="0.12" stroke="#10b981" stroke-opacity="0.3" stroke-width="1.5"/>
+      <!-- India (Right) -->
+      <path d="M 300 45 L 345 45 C 340 70, 335 95, 320 120 C 310 95, 305 70, 300 45 Z" fill="#10b981" fill-opacity="0.12" stroke="#10b981" stroke-opacity="0.3" stroke-width="1.5"/>
+
+      <!-- Flight Arc (Jamnagar East -> Bujumbura West) -->
+      <path class="arc" d="M 320 65 Q 215 15 110 120" fill="none" stroke="#fbbf24" stroke-width="3"/>
+
+      <!-- Jamnagar Pin (Right) -->
+      <circle cx="320" cy="65" r="6" fill="#fbbf24"/>
+      <circle cx="320" cy="65" r="10" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-opacity="0.6"/>
+      <text x="330" y="60" fill="#e2e8f0" font-size="11" font-family="Outfit,sans-serif" font-weight="600">Jamnagar, Gujarat</text>
+      <text x="330" y="73" fill="#94a3b8" font-size="9" font-family="Outfit,sans-serif">HOME</text>
+
+      <!-- Bujumbura Pin (Left) -->
+      <circle class="pulse" cx="110" cy="120" r="12" fill="none" stroke="#fbbf24" stroke-width="2.5"/>
+      <circle cx="110" cy="120" r="6" fill="#fbbf24"/>
+      <text x="105" y="142" text-anchor="end" fill="#e2e8f0" font-size="11" font-family="Outfit,sans-serif" font-weight="600">Bujumbura, Burundi</text>
+      <text x="105" y="154" text-anchor="end" fill="#fbbf24" font-size="9" font-family="Outfit,sans-serif">DAD ★</text>
+    </svg>
+
+    <h1 class="serif text-5xl sm:text-6xl text-center mt-6 gold leading-tight">Happy Birthday, Dad!</h1>
+    <p class="px text-[.62rem] text-center mt-4 text-emerald-300 leading-relaxed">PLAYER 1 · LEVEL UP UNLOCKED</p>
+
+    <div class="mt-8 border-l-4 border-amber-400 bg-slate-900/70 p-6 sm:p-8 rounded-r-lg">
+      <p class="serif text-xl sm:text-2xl leading-relaxed italic">The miles between us don't change who calls the plays in my life.</p>
+      <p class="mt-4 text-lg leading-relaxed text-slate-300">Wherever you are today, under a wide African sky in Bujumbura, know that this is for you. Thank you for the advice, the patience, and every match recap. Another year older, and still the best manager I've ever had.</p>
+      <p class="mt-5 gold serif text-lg">With love, your Farhan and Suhaan</p>
+    </div>
+
+    <div class="flex justify-end mt-8"><button class="btn" data-next>Next: Our Season Highlights ▶</button></div>
+  </section>
+
+  <!-- PAGE 2 -->
+  <section class="page" id="p1">
+    <h2 class="serif text-4xl sm:text-5xl gold text-center">Master League 2025/26 Recap</h2>
+    <p class="text-center text-slate-400 mt-3">A full season, one dad and one son, on the sticks.</p>
+
+    <div class="board mt-8 p-4 sm:p-6">
+      <div class="flex justify-between items-center px text-[.55rem] sm:text-[.62rem] text-emerald-300 pb-4 border-b-2 border-slate-800">
+        <span>CAREER MODE</span><span class="blink">● LIVE</span><span>SEASON 25/26</span>
+      </div>
+      <div class="grid grid-cols-2 gap-3 mt-4" id="stats">
+        <div class="cell"><div class="num" data-count="300" data-suffix="+">0+</div><div class="lbl">Matches Played</div></div>
+        <div class="cell"><div class="num" data-count="117" data-suffix="+">0+</div><div class="lbl">Unforgettable Goals</div></div>
+        <div class="cell"><div class="num" data-count="50" data-suffix="+">0+</div><div class="lbl">Transfers Managed</div></div>
+        <div class="cell"><div class="num" data-count="10000" data-suffix="+">0+</div><div class="lbl">DM Recaps</div></div>
+      </div>
+      <p class="px text-[.55rem] text-center text-amber-400 mt-5 leading-relaxed">MANAGER OF THE YEAR: DAD</p>
+    </div>
+
+    <div class="flex justify-between mt-8 gap-3">
+      <button class="btn ghost" data-prev>◀ Back</button>
+      <button class="btn" data-next>The Highlight Reel ▶</button>
+    </div>
+  </section>
+
+  <!-- PAGE 3 -->
+  <section class="page" id="p2">
+    <h2 class="serif text-4xl sm:text-5xl gold text-center">The Highlight Reel</h2>
+    <p class="px text-[.6rem] text-center mt-4 text-emerald-300">3:13 · PRESS START</p>
+
+    <div class="board mt-8 p-2 sm:p-3">
+      <div class="frame thumb">
+        <svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" class="absolute inset-0 w-full h-full" aria-hidden="true">
+          <rect width="320" height="180" fill="#065f46"/>
+          <g fill="#047857"><rect x="0" y="0" width="40" height="180"/><rect x="80" y="0" width="40" height="180"/><rect x="160" y="0" width="40" height="180"/><rect x="240" y="0" width="40" height="180"/></g>
+          <g fill="none" stroke="#fbbf24" stroke-opacity=".5" stroke-width="2"><rect x="14" y="14" width="292" height="152"/><line x1="160" y1="14" x2="160" y2="166"/><circle cx="160" cy="90" r="30"/></g>
+          <rect width="320" height="180" fill="#020617" fill-opacity=".45"/>
+        </svg>
+        <img src="https://i.ytimg.com/vi/HuIjfZTPmlA/hqdefault.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'">
+        <div class="absolute inset-0 bg-slate-950/40"></div>
+        <span class="badge px">🔒 UNLISTED</span>
+        <span class="dur px">3:13</span>
+        <div class="absolute inset-0 flex items-center justify-center"><span class="playdisc" aria-hidden="true">▶</span></div>
+      </div>
+      <div class="p-3 sm:p-4 text-center">
+        <p class="serif text-xl gold">Our PES Highlight Reel</p>
+        <p class="text-sm text-slate-400 mt-1">Unlisted video. Only people with this link can watch it.</p>
+        <a class="btn inline-block mt-4 no-underline" href="https://www.youtube.com/watch?v=HuIjfZTPmlA" target="_blank" rel="noopener">▶ PLAY ON YOUTUBE (3:13)</a>
+      </div>
+    </div>
+
+    <details class="mt-4 text-center" id="fb">
+      <summary class="cursor-pointer text-sm text-slate-400 hover:text-amber-300">Optional: try the in-page player</summary>
+      <div class="board mt-3 p-2">
+        <div class="frame">
+          <iframe id="yt" title="PES highlight reel" data-src="https://www.youtube.com/embed/HuIjfZTPmlA" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+      </div>
+      <p class="text-xs text-slate-500 mt-2">If this stays blank, use the Play on YouTube button above.</p>
+    </details>
+
+    <div class="mt-8 border-l-4 border-amber-400 bg-slate-900/70 p-6 sm:p-8 rounded-r-lg">
+      <p class="serif text-xl leading-relaxed">Final whistle? Not a chance. This is not even the first half of our story.</p>
+      <p class="mt-3 text-lg text-slate-300 leading-relaxed">Happy birthday, Dad. Enjoy every minute out there in Bujumbura, and hurry home. I've saved you a seat, and the next season kicks off the moment you land.</p>
+      <p class="px text-[.6rem] mt-5 gold">GAME ON ★</p>
+    </div>
+
+    <div class="flex justify-between mt-8 gap-3">
+      <button class="btn ghost" data-prev>◀ Back</button>
+      <button class="btn" data-go="0">Replay ↺</button>
+    </div>
+  </section>
+</main>
+
+<script>
+(function(){
+  var pages=[].slice.call(document.querySelectorAll('.page')),tabs=[].slice.call(document.querySelectorAll('.tab')),cur=-1,busy=false;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function countUp(){
+    [].forEach.call(document.querySelectorAll('[data-count]'),function(el){
+      var end=+el.getAttribute('data-count'),t0=null,dur=reduce?1:1400;
+      function step(t){if(!t0)t0=t;var p=Math.min((t-t0)/dur,1);el.textContent=Math.round(end*p).toLocaleString('en-US')+(el.getAttribute('data-suffix')||'');if(p<1)requestAnimationFrame(step)}
+      requestAnimationFrame(step);
+    });
+  }
+  function leaveVideo(){var f=document.getElementById('yt');f.removeAttribute('src');document.getElementById('fb').open=false}
+  document.getElementById('fb').addEventListener('toggle',function(){var f=document.getElementById('yt');if(this.open){if(!f.getAttribute('src'))f.setAttribute('src',f.getAttribute('data-src'))}else f.removeAttribute('src')});
+
+  function go(n){
+    n=Math.max(0,Math.min(pages.length-1,n));
+    if(n===cur||busy)return;
+    var old=pages[cur];busy=true;
+    function enter(){
+      cur=n;var p=pages[n];p.classList.add('active');
+      void p.offsetWidth;p.classList.add('show');
+      tabs.forEach(function(t,i){t.setAttribute('aria-selected',i===n)});
+      if(n===1)countUp();
+      window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});
+      busy=false;
+    }
+    if(old){
+      old.classList.remove('show');
+      if(old.id==='p2')leaveVideo();
+      setTimeout(function(){old.classList.remove('active');enter()},reduce?0:350);
+    }else enter();
+  }
+
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;
+    if(b.hasAttribute('data-next'))go(cur+1);
+    else if(b.hasAttribute('data-prev'))go(cur-1);
+    else if(b.hasAttribute('data-go'))go(+b.getAttribute('data-go'));
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight')go(cur+1);
+    if(e.key==='ArrowLeft')go(cur-1);
+  });
+  go(0);
+})();
+</script>
+</body>
+</html>
